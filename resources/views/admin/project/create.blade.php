@@ -11,7 +11,7 @@
         <form action="{{ route('admin.project.store') }}" method="POST" enctype="multipart/form-data">
 
             @csrf
-
+            {{-- ? INPUT TITLE --}}
             <div class="mb-3">
                 <label for="project-title" class="form-label">Title</label>
                 <input type="text" class="form-control" name="title" id="project-title" aria-describedby="helpId"
@@ -20,7 +20,7 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
-
+            {{-- ? INPUT DESCRIPTION --}}
             <div class="mb-3">
                 <label for="project-description" class="form-label">Description</label>
                 <textarea class="form-control" name="description" id="project-description" rows="3"
@@ -29,7 +29,7 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
-
+            {{-- ? INPUT PRICE --}}
             <div class="mb-3">
                 <label for="project-price" class="form-label">Price</label>
                 <input type="number" class="form-control" name="price" step="0.01" id="project-price"
@@ -38,7 +38,7 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
-
+            {{-- ? INPUT FILE --}}
             <div class="mb-3">
                 <label for="project-image" class="form-label">Project Image</label>
                 <input type="file" class="form-control" name="project_image" id="project-image"
@@ -47,8 +47,19 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
+            {{-- ? CICLO TYPES --}}
+            <div class="mb-3">
+                <label for="project-types" class="form-label">Types</label>
+                <select class="form-select form-select-lg" name="type_id" id="project-types">
+                    <option value="">-- Choose a category --</option>
+                    @foreach ($types as $elem)
+                        <option value="{{ $elem->id }}">{{ $elem->name }}</option>
+                    @endforeach
 
-            <button type="submit" class="btn btn-success">New Post</button>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success mt-3">New Post</button>
         </form>
     </div>
 @endsection
