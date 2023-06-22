@@ -15,6 +15,7 @@
                     <h4 class="card-title text-uppercase">{{ $project->title }}</h4>
                     <p class="card-text"><strong>Description:</strong> {{ $project->description }}</p>
                     <p class="card-text"><strong>Price:</strong> {{ $project->price }}&euro;</p>
+                    <p class="card-text"><strong>Type:</strong> {{ $project->type->name }}</p>
                 </div>
             </div>
         </div>
